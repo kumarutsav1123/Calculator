@@ -41,13 +41,9 @@ class MainActivity : AppCompatActivity() {
             tvResult.text = tvResult.text.substring(0, tvResult.length()-1)
             if (deletedChar == '.'){
                 lastDecimal = false
-                lastNumeric = true
-            }
-
-            // if result is empty
-            if (tvLength-1 == 0){
-                lastDecimal = false
-                lastNumeric = false
+                if (tvLength-1 != 0){
+                    lastNumeric = true
+                }
             }
         }
     }
