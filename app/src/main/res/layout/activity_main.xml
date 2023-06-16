@@ -8,18 +8,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center_horizontal"
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/tv_result"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:gravity="right | bottom |center_vertical"
-        android:textSize="46dp"
-        android:text="Hello World!"/>
+        android:gravity="end | bottom | center_vertical"
+        android:textSize="46sp"
+        android:text=""/>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
         android:orientation="horizontal"
         android:layout_weight="1">
 
@@ -27,20 +29,22 @@
             android:id="@+id/btn_clr"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_margin="3dp"
             android:layout_weight="1"
             android:padding="3dp"
+            android:layout_marginStart="4dp"
+            android:onClick="onClear"
             android:text="CLR"
-            android:textSize="30dp" />
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/btn_del"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="3dp"
             android:padding="3dp"
-            android:textSize="30dp"
+            android:layout_marginStart="4dp"
+            android:onClick="onDelete"
+            android:textSize="30sp"
             android:text="Del"/>
 
         <Button
@@ -48,9 +52,10 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="3dp"
             android:padding="3dp"
-            android:textSize="30dp"
+            android:layout_marginStart="4dp"
+            android:onClick="onOperator"
+            android:textSize="30sp"
             android:text="%"/>
 
         <Button
@@ -58,44 +63,52 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="3dp"
+            android:onClick="onOperator"
             android:padding="3dp"
-            android:textSize="30dp"
+            android:layout_marginStart="4dp"
+            android:textSize="30sp"
             android:text="/"/>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
         android:orientation="horizontal"
         android:layout_weight="1">
 
         <Button
+            android:id="@+id/btn_7"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="3dp"
+            android:layout_marginStart="3dp"
             android:padding="3dp"
-            android:textSize="30dp"
+            android:onClick="onDigit"
+            android:textSize="30sp"
             android:text="7"/>
 
         <Button
+            android:id="@+id/btn_8"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="3dp"
+            android:layout_marginStart="3dp"
             android:padding="3dp"
-            android:textSize="30dp"
+            android:onClick="onDigit"
+            android:textSize="30sp"
             android:text="8"/>
 
         <Button
+            android:id="@+id/btn_9"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="3dp"
+            android:layout_marginStart="3dp"
             android:padding="3dp"
-            android:textSize="30dp"
+            android:onClick="onDigit"
+            android:textSize="30sp"
             android:text="9"/>
 
         <Button
@@ -103,7 +116,8 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="3dp"
+            android:layout_marginStart="3dp"
+            android:onClick="onOperator"
             android:padding="3dp"
             android:textSize="30dp"
             android:text="X"/>
@@ -112,33 +126,40 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
         android:orientation="horizontal"
         android:layout_weight="1">
 
         <Button
+            android:id="@+id/btn_4"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="3dp"
+            android:layout_marginStart="3dp"
             android:padding="3dp"
-            android:textSize="30dp"
+            android:onClick="onDigit"
+            android:textSize="30sp"
             android:text="4"/>
 
         <Button
+            android:id="@+id/btn_5"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="3dp"
+            android:layout_marginStart="3dp"
+            android:onClick="onDigit"
             android:padding="3dp"
-            android:textSize="30dp"
+            android:textSize="30sp"
             android:text="5"/>
 
         <Button
+            android:id="@+id/btn_6"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="3dp"
+            android:layout_marginStart="3dp"
+            android:onClick="onDigit"
             android:padding="3dp"
             android:textSize="30dp"
             android:text="6"/>
@@ -148,7 +169,8 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="3dp"
+            android:layout_marginStart="3dp"
+            android:onClick="onOperator"
             android:padding="3dp"
             android:textSize="30dp"
             android:text="-"/>
@@ -157,33 +179,40 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
         android:orientation="horizontal"
         android:layout_weight="1">
 
         <Button
+            android:id="@+id/btn_1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_marginStart="3dp"
+            android:onClick="onDigit"
             android:layout_weight="1"
-            android:layout_margin="3dp"
             android:padding="3dp"
-            android:textSize="30dp"
-            android:text="1"/>
+            android:text="1"
+            android:textSize="30dp" />
 
         <Button
+            android:id="@+id/btn_2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="3dp"
+            android:layout_marginStart="3dp"
+            android:onClick="onDigit"
             android:padding="3dp"
             android:textSize="30dp"
             android:text="2"/>
 
         <Button
+            android:id="@+id/btn_3"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="3dp"
+            android:layout_marginStart="3dp"
+            android:onClick="onDigit"
             android:padding="3dp"
             android:textSize="30dp"
             android:text="3"/>
@@ -193,7 +222,8 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="3dp"
+            android:layout_marginStart="3dp"
+            android:onClick="onOperator"
             android:padding="3dp"
             android:textSize="30dp"
             android:text="+"/>
@@ -202,25 +232,40 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
         android:orientation="horizontal"
         android:layout_weight="1">
 
         <Button
+            android:id="@+id/btn_0"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="3dp"
+            android:layout_marginStart="3dp"
+            android:onClick="onDigit"
             android:padding="3dp"
             android:textSize="30dp"
             android:text="0"/>
 
         <Button
-            android:id="@+id/btn_equals"
+            android:id="@+id/btn_decimal"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_margin="3dp"
+            android:layout_marginStart="3dp"
+            android:onClick="onDecimal"
+            android:padding="3dp"
+            android:textSize="30dp"
+            android:text="."/>
+
+        <Button
+            android:id="@+id/btn_equals"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:layout_marginStart="3dp"
+            android:onClick="onEquals"
             android:padding="3dp"
             android:textSize="30dp"
             android:text="="/>
