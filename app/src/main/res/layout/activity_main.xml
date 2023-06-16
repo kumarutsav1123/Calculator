@@ -15,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:gravity="end | bottom | center_vertical"
+        android:maxLength="12"
         android:textSize="46sp"
         android:text=""/>
 

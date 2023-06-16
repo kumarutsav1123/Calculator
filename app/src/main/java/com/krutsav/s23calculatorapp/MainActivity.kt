@@ -48,9 +48,78 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+//TODO: Presently negative numbers cannot be worked out with, implement it later, as it'll create many new cases
+    fun onOperator(view: View) {
+        val tvResult = findViewById<TextView>(R.id.tv_result)
+        val str = tvResult.text.toString()
+        if (lastNumeric && !containsOperator(str)){
+            tvResult.append((view as Button).text)
+            lastNumeric = false
+            lastDecimal = false
+        }
+    }
 
-    fun onOperator(view: View) {}
-    fun onEquals(view: View) {}
+    private fun containsOperator(str: String): Boolean{
+        if (str.startsWith('-')){
+            return false
+        }
+        else {
+            return  str.contains('+') ||
+                    str.contains('-') ||
+                    str.contains('X') ||
+                    str.contains('%') ||
+                    str.contains('/')
+        }
+    }
+
+    fun onEquals(view: View) {
+        val tvResult = findViewById<TextView>(R.id.tv_result)
+        val value = tvResult.text
+        var result:String
+        val splitedText:List<String>
+        if (value.contains('+')){
+            splitedText = value.split('+')
+            val valueOne = splitedText[0].toDouble()
+            val valueTwo = splitedText[1].toDouble()
+            result = (valueOne + valueTwo).toString()
+        }
+        else if (value.contains('-')){
+            splitedText = value.split('-')
+            val valueOne = splitedText[0].toDouble()
+            val valueTwo = splitedText[1].toDouble()
+            result = (valueOne - valueTwo).toString()
+        }
+        else if (value.contains('X')){
+            splitedText = value.split('X')
+            val valueOne = splitedText[0].toDouble()
+            val valueTwo = splitedText[1].toDouble()
+            result = (valueOne * valueTwo).toString()
+        }
+        else if (value.contains('/')){
+            splitedText = value.split('/')
+            val valueOne = splitedText[0].toDouble()
+            val valueTwo = splitedText[1].toDouble()
+            try{
+                result = (valueOne / valueTwo).toString()
+            }
+            catch (e: ArithmeticException){
+                Toast.makeText(this, "$e", Toast.LENGTH_SHORT).show()
+                result = "Infinity"
+            }
+        }
+        else if (value.contains('%')){
+            splitedText = value.split('%')
+            val valueOne = splitedText[0].toDouble()
+            val valueTwo = splitedText[1].toDouble()
+
+            result = (valueOne % valueTwo).toString()
+        }
+        else {
+            result = value.toString()
+        }
+        tvResult.text = result
+    }
+
     fun onDecimal(view: View) {
         if (lastNumeric && !lastDecimal){
             val tvResult = findViewById<TextView>(R.id.tv_result)
@@ -60,33 +129,4 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-
-
-    /*
-    fun integerInput(tvResult: TextView): Int{
-        val btnZero = findViewById<Button>(R.id.btn_0)
-        val btnOne = findViewById<Button>(R.id.btn_1)
-        val btnTwo = findViewById<Button>(R.id.btn_2)
-        val btnThree = findViewById<Button>(R.id.btn_3)
-        val btnFour = findViewById<Button>(R.id.btn_4)
-        val btnFive = findViewById<Button>(R.id.btn_5)
-        val btnSix = findViewById<Button>(R.id.btn_6)
-        val btnSeven = findViewById<Button>(R.id.btn_7)
-        val btnEight = findViewById<Button>(R.id.btn_8)
-        val btnNine = findViewById<Button>(R.id.btn_9)
-
-        var integerInput = 0;
-        btnZero.setOnClickListener {
-            tvResult.text = "0"
-            integerInput = 0
-        }
-        btnOne.setOnClickListener {
-            tvResult.text = "1"
-            integerInput = 1
-        }
-
-        return integerInput;
-    }
-*/
-
 }
