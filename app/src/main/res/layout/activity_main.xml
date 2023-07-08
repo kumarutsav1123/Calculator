@@ -14,9 +14,11 @@
         android:id="@+id/tv_result"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:gravity="end | bottom | center_vertical"
+        android:gravity="bottom"
         android:maxLength="12"
+        android:textAlignment="viewEnd"
         android:textSize="46sp"
+        tools:text="Text here"
         android:text=""/>
 
     <LinearLayout
@@ -30,10 +32,10 @@
             android:id="@+id/btn_clr"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:padding="3dp"
             android:layout_marginStart="4dp"
+            android:layout_weight="1"
             android:onClick="onClear"
+            android:padding="3dp"
             android:text="CLR"
             android:textSize="30sp" />
 
